@@ -106,8 +106,13 @@ const ShoppingCartApp = () => {
   const [productList, setProductList] = useState([]);
 
   const addProductToCart = (productName, productPrice) => {
-    const product = { name: productName, price: productPrice };
-    const updatedProduct = [...productList, product];
+    // const product = { name: productName, price: productPrice };
+    // const updatedProduct = [...productList, product];
+    const updatedProduct = [
+      ...productList,
+      { name: productName, price: productPrice },
+    ];
+    //destructuring props
     // console.log(updatedProduct);
     setProductList(updatedProduct);
     setTotalPrice(totalPrice + productPrice);
@@ -124,6 +129,7 @@ const ShoppingCartApp = () => {
       </ul>
       {/* {console.log(productList)} */}
       <p>Total Price: ${totalPrice}</p>
+      {/* passing obj */}
       <button onClick={() => addProductToCart('Product A', 10)}>
         Add Product A
       </button>
@@ -142,6 +148,7 @@ const QuizApp = () => {
   ];
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  //useState(0) means store question number
   const [answer, setAnswer] = useState('');
 
   const nextQuestionHandler = () => {
@@ -163,6 +170,7 @@ const QuizApp = () => {
             value={answer}
             onChange={(event) => setAnswer(event.target.value)}
           />
+          {/* required attribute is used in html form */}
           <button onClick={nextQuestionHandler}>Next</button>
         </>
       ) : (
