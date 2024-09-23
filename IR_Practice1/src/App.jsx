@@ -141,15 +141,15 @@ const ShoppingCartApp = () => {
 };
 
 const QuizApp = () => {
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  //useState(0) means store question number
+  const [answer, setAnswer] = useState('');
+
   const questions = [
     'What is the national bird of India?',
     'How many colors are there in Indian flag?',
     'What is the color of sky?',
   ];
-
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  //useState(0) means store question number
-  const [answer, setAnswer] = useState('');
 
   const nextQuestionHandler = () => {
     // console.log(currentQuestion, questions.length);

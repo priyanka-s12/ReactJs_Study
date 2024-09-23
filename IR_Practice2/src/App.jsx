@@ -1,6 +1,8 @@
 import { useState } from 'react';
-
+//in this example I am not tracking any value, just select all 3 radios and submit the form and display message(form disapper)
 export default function App() {
+  const [message, setMessage] = useState(false);
+
   const questions = [
     {
       id: 1,
@@ -19,23 +21,9 @@ export default function App() {
     },
   ];
 
-  const [message, setMessage] = useState(false);
-  const [answers, setAnswers] = useState([]);
-
-  const answerHandler = (event) => {
-    const { value, checked } = event.target;
-    if (checked) {
-      setAnswers([...answers, value]);
-    }
-  };
-
   const formHandler = (event) => {
     event.preventDefault();
-    // console.log(questions);
-    console.log(answers);
-    if (answers.length === questions.length) {
-      setMessage(true);
-    }
+    setMessage(true);
   };
   return (
     <main>
@@ -49,10 +37,10 @@ export default function App() {
                 {question.options.map((option, index) => (
                   <li key={index}>
                     <input
+                      id={option}
                       type="radio"
                       name={`question${question.id}`}
                       value={option}
-                      onChange={answerHandler}
                       required
                     />
                     {option}

@@ -1,6 +1,11 @@
 import { useState } from 'react';
 
 export default function App() {
+  //question index number
+  const [activeQuestion, setActiveQuestion] = useState(0);
+  const [selectedOption, setSelectedOption] = useState('');
+  const [score, setScore] = useState(0);
+
   const questions = [
     {
       id: 1,
@@ -21,11 +26,6 @@ export default function App() {
       correctAnswer: 'Harper Lee',
     },
   ];
-
-  //question index number
-  const [activeQuestion, setActiveQuestion] = useState(0);
-  const [selectedOption, setSelectedOption] = useState('');
-  const [score, setScore] = useState(0);
 
   const nextQuestionHandler = () => {
     setActiveQuestion(activeQuestion + 1);
